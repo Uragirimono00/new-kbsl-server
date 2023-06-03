@@ -7,6 +7,13 @@ plugins {
     kotlin("jvm") version "1.8.21"
     kotlin("plugin.spring") version "1.8.21"
     kotlin("plugin.jpa") version "1.8.21"
+    kotlin("plugin.allopen") version "1.8.21"
+}
+
+allOpen {
+    annotation("jakarta.persistence.Entity")
+    annotation("jakarta.persistence.Embeddable")
+    annotation("jakarta.persistence.MappedSuperclass")
 }
 
 group = "com.example"
@@ -43,6 +50,9 @@ dependencies {
 
     // DB 추가
     implementation("org.postgresql:postgresql")
+
+    // Swagger 추가가
+   implementation("io.springfox:springfox-boot-starter:3.0.0")
 
 }
 
